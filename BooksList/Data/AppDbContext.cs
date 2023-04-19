@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BooksList.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BooksList.Data
 {
@@ -8,5 +9,7 @@ namespace BooksList.Data
         {
 
         }
+
+        public DbSet<Book> Book { get; set; }
     }
 }

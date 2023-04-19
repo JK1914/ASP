@@ -1,0 +1,13 @@
+﻿@page
+@model BooksList.Pages.AddBookModel
+@{
+    ViewData["Title"] = "Добавить книгу";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">    
+    <input type="text" name="title" id="title" placeholder="Введите название"/>
+    <input type="text" name="title" id="title" placeholder="Введите автора"/>
+    <button type="submit">Create</button>
+</form>

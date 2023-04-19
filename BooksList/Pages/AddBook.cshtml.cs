@@ -1,27 +1,26 @@
-﻿using BooksList.Models;
+using BooksList.Models;
 using BooksList.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace BooksList.Pages
 {
-    public class IndexModel : PageModel
+    public class AddBookModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
         private readonly BookService _bookService;
-        public List<Book> booksList { get; set; }
-
-        public IndexModel(ILogger<IndexModel> logger, BookService bookService)
+        public AddBookModel(BookService bookService)
         {
-            _logger = logger;
             _bookService = bookService;
         }
 
         public IActionResult OnGet()
         {
-            booksList = _bookService.GetBooks();
             return Page();
+        }
 
+        public IActionResult OnPost(Book book)
+        {
+            return RedirectToPage("Index");
         }
     }
 }
