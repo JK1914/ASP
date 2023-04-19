@@ -17,5 +17,12 @@ namespace BooksList.Services
             var books = context.Book.ToList();
             return books;
         }
+
+        public void AddBook(Book book)
+        {
+            book.AddedDate = DateTime.Now;
+            context.Book.Add(book);
+            context.SaveChanges();
+        }
     }
 }

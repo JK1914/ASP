@@ -20,6 +20,7 @@ namespace BooksList.Pages
 
         public IActionResult OnPost(Book book)
         {
+            _bookService.AddBook(book);
             return RedirectToPage("Index");
         }
     }
