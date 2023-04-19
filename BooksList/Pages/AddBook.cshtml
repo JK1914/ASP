@@ -6,8 +6,20 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<form method="post">    
-    <input type="text" name="title" id="title" placeholder="Введите название"/>
-    <input type="text" name="title" id="title" placeholder="Введите автора"/>
-    <button type="submit">Create</button>
+
+<form asp-page="AddBook">
+    <div class="form-group">
+        <label asp-for="book.Title"></label>
+        <input asp-for="book.Title" class="form-control" placeholder=" Введите название"/>
+        <span asp-validation-for="book.Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="book.Author"></label>
+        <input asp-for="book.Author" class="form-control" placeholder="Введите автора" />
+        <span asp-validation-for="book.Author" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary btn-lg" type="submit">Добавить</button>
+
 </form>
+

@@ -1,7 +1,15 @@
+using BooksList.Data;
+using BooksList.Services;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+string connString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connString));
+builder.Services.AddScoped<BookService>();
 
 var app = builder.Build();
 

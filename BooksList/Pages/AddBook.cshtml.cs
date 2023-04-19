@@ -8,6 +8,8 @@ namespace BooksList.Pages
     public class AddBookModel : PageModel
     {
         private readonly BookService _bookService;
+        [BindProperty]
+        public Book book { get; set; }
         public AddBookModel(BookService bookService)
         {
             _bookService = bookService;
@@ -20,6 +22,11 @@ namespace BooksList.Pages
 
         public IActionResult OnPost(Book book)
         {
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+            _bookService.AddBook(book);
             return RedirectToPage("Index");
         }
     }
