@@ -1,9 +1,10 @@
 ﻿using BooksList.Data;
+using BooksList.Interfaces;
 using BooksList.Models;
 
 namespace BooksList.Services
 {
-    public class BookService
+    public class BookService : IDbRepository
     {
         private readonly AppDbContext context;
         public BookService(AppDbContext context)

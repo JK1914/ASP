@@ -1,4 +1,5 @@
-﻿using BooksList.Models;
+﻿using BooksList.Interfaces;
+using BooksList.Models;
 using BooksList.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,7 +9,7 @@ namespace BooksList.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        private readonly BookService _bookService;
+        private readonly IDbRepository _bookService;
         public List<Book> booksList { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger, BookService bookService)

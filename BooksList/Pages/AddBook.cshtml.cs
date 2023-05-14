@@ -1,3 +1,4 @@
+using BooksList.Interfaces;
 using BooksList.Models;
 using BooksList.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -7,7 +8,7 @@ namespace BooksList.Pages
 {
     public class AddBookModel : PageModel
     {
-        private readonly BookService _bookService;
+        private readonly IDbRepository _bookService;
         [BindProperty]
         public Book book { get; set; }
         public AddBookModel(BookService bookService)
